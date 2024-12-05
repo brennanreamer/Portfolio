@@ -1,0 +1,382 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % seperation between body and page edge from the top
+    bottom=2 cm, % seperation between body and page edge from the bottom
+    left=2 cm, % seperation between body and page edge from the left
+    right=2 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 0, 0} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Brennan Reamer's Resume},
+    pdfauthor={Brennan Reamer},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\pagenumbering{gobble} % no page numbering
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in September 2024}\hspace{\widthof{Last updated in September 2024}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont Brennan Reamer
+
+        \vspace{5 pt}
+
+        \normalsize
+        %\mbox{Boston, MA}%
+        %\kern 5.0 pt%
+        %\AND%
+        %\kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{mailto:brennan.reamer@gmail.com}{brennan.reamer@gmail.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{tel:+1-240-432-1200}{(240) 432-1200}}%
+        \kern 5.0 pt%
+       % \AND%
+        %\kern 5.0 pt%
+        %\mbox{\hrefWithoutArrow{https://yourwebsite.com/}{yourwebsite.com}}%
+       %\kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/brennanreamer/}{linkedin.com/in/brennanreamer}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://github.com/brennanreamer}{github.com/brennanreamer}}%
+    \end{header}
+
+    \vspace{5 pt - 0.3 cm}
+
+
+%    \section{Summary}
+%        \begin{onecolentry}
+%            \href{https://rendercv.com}{RenderCV} is a LaTeX-based CV/resume version-control and maintenance app. It allows you to create a high-quality CV or resume as a PDF file from a YAML file, with \textbf{Markdown syntax support} and \textbf{complete control over the LaTeX code}.
+%        \end{onecolentry}
+%
+%        \vspace{0.2 cm}
+%
+%        \begin{onecolentry}
+%            The boilerplate content was inspired by \href{https://github.com/dnl-blkv/mcdowell-cv}{Gayle McDowell}.
+%        \end{onecolentry}
+%
+%
+%    
+%    \section{Quick Guide}
+%
+%    \begin{onecolentry}
+%        \begin{highlightsforbulletentries}
+%
+%
+%        \item Each section title is arbitrary and each section contains a list of entries.
+%
+%        \item There are 7 unique entry types: \textit{BulletEntry}, \textit{TextEntry}, \textit{EducationEntry}, \textit{ExperienceEntry}, \textit{NormalEntry}, \textit{PublicationEntry}, and \textit{OneLineEntry}.
+%
+%        \item Select a section title, pick an entry type, and start writing your section!
+%
+%        \item \href{https://docs.rendercv.com/user_guide/}{Here}, you can find a comprehensive user guide for RenderCV.
+%
+%
+%        \end{highlightsforbulletentries}
+%    \end{onecolentry}
+%
+    \section{Education}
+        \begin{twocolentry}{
+            Aug 2019 – Aug 2023
+        }
+            \textbf{Wentworth Institute of Technology}, BS in Electromechanical Engineering\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item  \textbf{GPA:} 3.9/4.0 (IDK)
+                \item  \textbf{Minor:} Applied Math, Computer Science
+                \item  \textbf{Honors:} Magna Cum Laude, Dean's list recipient every semester
+                 \item \textbf{Coursework:} Parallel Computer Architecture, Machine Learning, Object-Oriented Programming
+                \item  \textbf{Extracurriculars:} Wentworth Engineering Honors Society Member, Wentworth Men's Soccer Team player
+            \end{highlights}
+        \end{onecolentry}
+
+
+    \section{Experience}
+        \begin{twocolentry}{
+            Aug 2023 – Present
+        }
+            \textbf{North America Tulip Experience Center Lead}, Tulip Interfaces -- Somerville, MA\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed an HMI of the Future, integrating the Tulip platform directly into a Rockwell Automation FTOptix application running on an Allen-Bradley HMI, \textit{\href{https://youtu.be/9DY1roc3KkQ?feature=shared}{Video}}
+                \item Led development of several Pop-up Factories and demos to showcase the Tulip software platform at international events
+                \item Regularly give tours of our Experience Center both internally for enablement and externally with potential customers, \textit{\href{https://tulip.co/tec-virtual-tour}{Virtual Tour}}
+                \item Led a complete rework of our Experience Center, creating a process-driven demo replicating a real factory. Integrated 15 Partners within our Experience Center, including a UNS, MQTT Broker, and Historian, as well as hardware devices such as Banner Engineering's Pick-To-Light devices over Modbus, a Kolver Torque Driver using Torque Open Protocol, and a ProGlove MARK Display over Serial.
+                \item Mentored 2 co-ops
+                \item Manufactured a custom PCBA Gizmo Clock for use as part of our Pop-up Factory at international events
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+	\begin{twocolentry}{
+            Sep 2022 – Aug 2023
+        }
+            \textbf{Applications Engineering Co-op}, Tulip Interfaces -- Somerville, MA\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+	     \item Responsible for daily audit and debugging of state-of-the-art Experience Center
+	     \item Assisted Marketing team in production, setup, and day-of maintenance of Tulip Events and tradeshow installations
+                \item Created apps and experiences to be presented at international tradeshows and partner sites
+                \item Created integrations with API and data sources such as Salesforce, Slack, PostgreSQL, and Google Transit, Translate, and Calendar
+                \item Completed Hardware R\&D projects with methods such as analog current measurement with current clamps to gather machine monitoring metrics
+                \item Created integrations between Tulip and modern industry equipment like Kolver torque drivers, ZeroKey Quantum RTLS, ProGlove Serial/TTL Gateways, Cognex MQTT bridges, and AWS Lookout for Vision
+                \item Trained and deployed an AI vision model for object detection using LandingAI’s LandingLens. Integrated the vision model into an embedded JS widget within a Tulip app.
+                \item Used JavaScript to develop an AI Chatbot trained on Tulip documentation that can respond to questions about the Tulip platform. Integrated the chatbot onto every Tulip app within the Tulip Experience Center.
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Jan 2022 – Apr 2022
+        }
+            \textbf{R\&D Design Engineer Co-op}, Barnes -- Peabody, MA\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Conducted Thermocouple testing on a Synventive Hot Runner Injection Molding System
+                \item Developed an energy harvesting system for use within the injection molding process to power small electronics.
+                \item Designed two new Dynamic Feed plastic flow methods in SolidWorks to be used as images in a patent application.
+                \item Collaborated in an Agile software testing environment, training new team members and utilizing project management tools, such as Kanban boards and Jira software.
+                \item Developed automated UI tests using Cypress in JavaScript for continuous software verification.
+            \end{highlights}
+        \end{onecolentry}
+            
+    \section{Projects}
+        \begin{twocolentry}{
+           Jan 2023 – Aug 2023
+        }
+            \textbf{Autonomous Meal Delivery Robot for Medical Facilities}\textit{, Senior Design Project}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed an autonomous robot with a team of four to deliver meals to patients in a hospital setting, using ROS, Ubuntu, Nvidia Jetson Nano, LiDAR, and Ultrasonic sensors.
+                \item  Led the development of the robot’s autonomous navigation and path planning system, utilizing Machine Learning in ROS to process LiDAR data and make real-time decisions on the best route for the robot to take.
+                \item Designed and implemented a custom algorithm for the robot’s path planning, taking into account factors such as obstacle avoidance, patient privacy, and efficient delivery routes.
+                \item Collaborated closely with team members responsible for CAD design, motor control, and user interface design to integrate the autonomous navigation system into the overall robot functionality.
+                \item Tools Used: C++, LiDAR mapping, Nvidia Jetson Nano microcontroller, Robot Operating System (ROS)
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            
+        }
+            \textbf{3D Printer}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Assembled a FDM Cartesian 3D Printer, wiring and programming the motherboard with Marlin (RepRap) firmware written in C/C++, interfacing the printer with a Raspberry Pi 3B+ acting as a headless server for remote printing and monitoring
+                \item Tools Used: C/C++, Linux
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Sep 2018 – May 2019
+        }
+            \textbf{Lead Detection Device for Running Water}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Programmed a Raspberry Pi using Python to detect lead in running water as small as 15 parts-per-million and print if the water is safe to drink
+                \item Interfaced a Screen-Printed Electrode, a Gas-Sensor Development Module, and an LCD display to the Raspberry Pi using I2C serial connections
+                \item Conducted as a year-long project in a team of 2 with 3 presentations to a panel of 8 professional engineers throughout the process
+                \item Tools Used: Python, Linux, Raspberry Pi
+            \end{highlights}
+        \end{onecolentry}
+
+
+
+    
+    \section{Technologies}
+
+
+
+        
+        \begin{onecolentry}
+            \textbf{Languages:} C++, C, JavaScript, SQL, Python, \LaTeX, Matlab, Cypress, R
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+        
+        \begin{onecolentry}
+            \textbf{Protocols:} Modbus, MQTT, OPC-UA, Serial
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+        
+        \begin{onecolentry}
+            \textbf{Technologies:} Tulip, AWS, Node-RED, HighByte, HiveMQ, Rockwell Automation's FactoryTalk Optix, Salesforce, LandingAI, Jira
+        \end{onecolentry}
+        
+        \vspace{0.2 cm}
+        
+        \begin{onecolentry}
+            \textbf{Computer-Aided Design:} Autodesk Fusion 360, Solidworks, NI Multisim, Simulink
+        \end{onecolentry}
+\end{document}
