@@ -1,4 +1,78 @@
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { projects } from './projects/projectsData';
+
+const ProjectCarousel = () => {
+  const [position, setPosition] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  // Duplicate the projects array to create a seamless loop
+  const displayProjects = [...projects, ...projects];
+
+  useEffect(() => {
+    const animate = () => {
+      setPosition((prev) => {
+        const newPosition = prev - 0.5; // Adjust speed here (smaller = slower)
+        
+        // Reset position when we've scrolled through the first set of projects
+        if (-newPosition >= projects.length * 320) { // 320px is card width + gap
+          return 0;
+        }
+        return newPosition;
+      });
+      requestAnimationFrame(animate);
+    };
+
+    const animation = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animation);
+  }, []);
+
+  return (
+    <div className="relative w-full overflow-hidden py-8">
+      <div 
+        ref={containerRef}
+        className="flex gap-5"
+        style={{
+          transform: `translateX(${position}px)`,
+          transition: 'transform 0.05s linear'
+        }}
+      >
+        {displayProjects.map((project, index) => (
+          <Link
+            key={`${project.id}-${index}`}
+            href={`/projects/${project.id}`}
+            className="flex-shrink-0 w-[300px] group"
+          >
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden 
+                          transform transition-all duration-300 h-72
+                          group-hover:scale-105 group-hover:shadow-xl">
+              {project.image && (
+                <div className="h-48">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              <div className="p-4 h-24 flex items-center">
+                <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 
+                             group-hover:text-blue-600 transition-colors">
+                  {project.title}
+                </h3>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      {/* Gradient overlays for smooth edges */}
+      <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+    </div>
+  );
+};
 
 export default function Home() {
   return (
@@ -39,9 +113,9 @@ export default function Home() {
             </p>
           </div>
           
-          {/* Featured projects grid will be populated from Firestore */}
-          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {/* Project cards will be dynamically rendered here */}
+          {/* Project Carousel */}
+          <div className="mt-12">
+            <ProjectCarousel />
           </div>
         </div>
       </section>

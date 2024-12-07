@@ -20,7 +20,7 @@ const Navigation = () => {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="text-xl font-bold">
+              <Link href="/" className="text-xl font-bold text-black hover:text-blue-600 transition-colors">
                 Brennan Reamer
               </Link>
             </div>
@@ -29,11 +29,11 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   href={item.path}
-                  className={`${
-                    pathname === item.path
-                      ? 'border-indigo-500 text-gray-900'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
-                  } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
+                  className={`inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors
+                    ${pathname === item.path
+                      ? 'text-blue-600 border-b-2 border-blue-600'
+                      : 'text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600'
+                    }`}
                 >
                   {item.name}
                 </Link>
