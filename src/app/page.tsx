@@ -75,6 +75,25 @@ const ProjectCarousel = () => {
 };
 
 export default function Home() {
+  const [engineerType, setEngineerType] = useState('Software');
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const engineerTypes = ['Software', 'Electrical', 'Mechanical'];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      
+      setTimeout(() => {
+        const currentIndex = engineerTypes.indexOf(engineerType);
+        const nextIndex = (currentIndex + 1) % engineerTypes.length;
+        setEngineerType(engineerTypes[nextIndex]);
+        setIsTransitioning(false);
+      }, 500); // Half of total transition time
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [engineerType]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -84,9 +103,17 @@ export default function Home() {
             <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
               Hi, I'm Brennan Reamer
             </h1>
-            <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-              Software Engineer passionate about building innovative solutions
-            </p>
+            <div className="relative h-16 flex justify-center items-center">
+              <p className="text-base text-gray-500 sm:text-lg md:text-xl">
+                <span 
+                  className={`inline-block transition-all duration-500 ease-in-out transform
+                    ${isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}
+                >
+                  {engineerType} Engineer
+                </span>
+                {' passionate about building innovative solutions'}
+              </p>
+            </div>
             <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
               <div className="rounded-md shadow">
                 <Link
