@@ -16,6 +16,7 @@ export interface Project {
   models?: { title: string; url: string; }[];
   documents?: { title: string; url: string; }[];
   github?: string;
+  matterport?: string;
 }
 
 export const projects: Project[] = [
@@ -31,7 +32,24 @@ export const projects: Project[] = [
       "Collaborated closely with team members responsible for CAD design, motor control, and user interface design.",
       "Tools Used: C++, LiDAR mapping, Nvidia Jetson Nano microcontroller, Robot Operating System (ROS)"
     ],
-    image: "/projects/robot.jpg",
+    image: "/projects/Engr Capstone Project/robot.png",
+    additionalImages: [
+      "/projects/Engr Capstone Project/cadModel.png",
+      "/projects/Engr Capstone Project/systemDiagram.png",
+      "/projects/Engr Capstone Project/fullCadModel.png",
+      "/projects/Engr Capstone Project/lidarMap.png",
+      "/projects/Engr Capstone Project/lidarDataMap.png",
+      "/projects/Engr Capstone Project/driveSystem.jpg",
+      "/projects/Engr Capstone Project/conveyorComponent.png",
+      "/projects/Engr Capstone Project/conveyorConnection.png",
+      "/projects/Engr Capstone Project/conveyorRoller.png",
+    ],
+    documents: [
+      {
+        title: "Design Showcase Poster",
+        url: "/projects/Engr Capstone Project/Design Showcase Poster.pdf"
+      }
+    ],
     tags: ["Undergraduate Course","Engineering Capstone Project", "C++", "ROS", "Machine Learning", "LiDAR", "Robotics", "Nvidia Jetson Nano", "Linux"],
     type: "school"
   },
@@ -259,5 +277,51 @@ export const projects: Project[] = [
     tags: ["Personal Project", "React", "Typescript", "TailwindCSS"],
     type: "personal",
     github: "https://github.com/brennanreamer/Portfolio"
+  },
+  {
+    id: 'tulip-experience-center',
+    title: "Tulip Experience Center Virtual Tour",
+    date: "2023 – Present",
+    description: "",
+    highlights: [
+      "Led the development and maintenance of Tulip's Experience Center, showcasing the company's manufacturing software solutions in a hands-on environment.",
+      "Created and maintained an interactive virtual tour experience, enabling global access to Tulip's manufacturing solutions and demonstrations.",
+      "Designed and implemented various manufacturing demonstrations that highlight Tulip's capabilities in real-world scenarios.",
+      "Regularly conduct live and virtual tours for prospects, customers, and partners, effectively communicating Tulip's value proposition.",
+      "Continuously update and optimize the Experience Center to reflect new product features and manufacturing best practices."
+    ],
+    image: "/projects/tulip-experience-center/virtual-tour-screenshot.png",
+    tags: ["Tulip Interfaces", "Tulip Experience Center", "Manufacturing", "Virtual Tour"],
+    type: "work",
+    matterport: "https://my.matterport.com/show/?m=mpkLjuDWrMz"
+  },
+  {
+    id: 'imts-2024',
+    title: "IMTS 2024",
+    date: "2024",
+    description: "",
+    highlights: [
+      // Add highlights for IMTS 2024
+    ],
+    image: "/projects/Events/IMTS_2024/front.jpg",
+    tags: ["Tulip Interfaces", "IMTS 2024", "Event Showcase", "Manufacturing"],
+    type: "work"
+  },
+  {
+    id: 'oc-2024',
+    title: "Ops Calling 2024",
+    date: "2024",
+    description: "",
+    highlights: [
+      // Add highlights for IMTS 2024
+    ],
+    image: "/projects/Events/OpsCalling_2024/tec_action.jpg",
+    additionalImages: [
+      "/projects/Events/OpsCalling_2024/puf_action.jpg",
+      "/projects/Events/OpsCalling_2024/dmgmori_amr.jpg"
+    ],
+    tags: ["Tulip Interfaces", "Ops Calling 2024", "Event Showcase", "Manufacturing"],
+    type: "work"
   }
+
 ];

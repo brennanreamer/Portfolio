@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { Project, projects } from '../projectsData';
 import ModelViewer from '@/components/ModelViewer';
+import MatterportViewer from '@/components/MatterportViewer';
 
 const ImageCarousel = ({ images }: { images: string[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -236,9 +237,13 @@ export default function ProjectPage() {
           <p className="text-gray-600 mb-4">{project.date}</p>
         )}
 
-        {/* Image Carousel */}
+        {/* Show either Matterport viewer or Image Carousel */}
         <div className="mb-8">
-          <ImageCarousel images={allImages} />
+          {project.matterport ? (
+            <MatterportViewer url={project.matterport} />
+          ) : (
+            <ImageCarousel images={allImages} />
+          )}
         </div>
 
         {/* Add the model viewer if there are models */}
