@@ -65,8 +65,8 @@ export default function ProjectsPage() {
               <h3 className="text-xl font-bold text-black mb-2">
                 {project.title}
               </h3>
-              {project.dateRange && (
-                <p className="text-gray-600 text-sm mb-2">{project.dateRange}</p>
+              {project.date && (
+                <p className="text-gray-600 text-sm mb-2">{project.date}</p>
               )}
               <ul className="space-y-2">
                 {project.highlights.slice(0, 2).map((highlight, idx) => (
