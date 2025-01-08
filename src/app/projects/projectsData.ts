@@ -300,11 +300,28 @@ export const projects: Project[] = [
     matterport: "https://my.matterport.com/show/?m=mpkLjuDWrMz"
   },
   {
-<<<<<<< Updated upstream
     id: 'ftoptix-bioreactor-hmi',
-    title: "Rockwell Automation FT Optix Bioreactor HMI Demo",
+    title: "Rockwell Automation FT Optix HMI of the Future",
     date: "Sep 2024",
-=======
+    description: "",
+    highlights: [
+      "Engineered a cutting-edge HMI application integrating Tulip platform with Rockwell Automation FTOptix on an Allen-Bradley HMI, streamlining Bioreactor setup and operation for enhanced user efficiency.",
+      "Pioneered real-time data visualization and machine control by seamlessly integrating Tulip apps into HMI, showcasing advanced third-party software integration capabilities.",
+      "Showcased the innovative 'HMI of the Future' at Hannover Messe 2024, reaching an audience of 130,000 industry professionals",
+      "Revolutionized operator support by embedding Bioreactor manual and AI Chatbot within the Tulip application, enabling instant, intelligent assistance and reducing downtime.",
+      "Tools Used: Tulip, Rockwell Automation's FactoryTalk Optix, C#"
+    ],
+    image: "/projects/optixHMI/hmi.png",
+    linkedInPosts: [
+      {
+        url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7188602524948406272",
+        height: 789
+      },
+    ],
+    tags: ["Tulip Interfaces", "FT Optix", "Rockwell Automation", "HMI Development", "Allen-Bradley HMI", "Manufacturing"],
+    type: "work"
+  },
+  {
     id: 'tec-internal-db',
     title: "TEC Internal Dashboard",
     date: "Dec 2022",
@@ -316,29 +333,6 @@ export const projects: Project[] = [
     ],
     image: "/projects/TEC Internal Dashboard/internalDash.png",
     tags: ["Tulip Interfaces", "Tulip Experience Center"],
-    type: "work"
-  },
-  {
-    id: 'imts-2024',
-    title: "IMTS 2024",
-    date: "2024",
->>>>>>> Stashed changes
-    description: "",
-    highlights: [
-      "Developed an HMI (Human-Machine Interface) application for to guide an operator through the setup and operation of a Bioreactor, integrating the Tulip platform directly into a Rockwell Automation FTOptix application running on an Allen-Bradley HMI.",
-      "This demostrated the integration of Tulip apps directly on the HMI, enabling real-time data visualization and control of a machine, as well as the ability to integrate third-party software using Tulip's simple Connector functionality.",
-      "The collaboration was debuted at Hannover Messe 2024, attended by 130,000 people.",
-      "The manual for the Bioreactor was embedded within the Tulip application alongside an AI Chatbot, enabling real-time assistance to operators.",
-      "Tools Used: Tulip, Rockwell Automation's FactoryTalk Optix, C#"
-    ],
-    image: "/projects/optixHMI/hmi.png",
-    linkedInPosts: [
-      {
-        url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7188602524948406272",
-        height: 789
-      },
-    ],
-    tags: ["Tulip Interfaces", "FT Optix", "Rockwell Automation", "HMI Development", "Allen-Bradley HMI", "Manufacturing"],
     type: "work"
   },
   {
@@ -366,7 +360,6 @@ export const projects: Project[] = [
     date: "Oct 2024",
     description: "",
     highlights: [
-<<<<<<< Updated upstream
       "Revamped our Tulip Experience Center to feature new hardware and software integrations, such as the ZeroKey Quantum RTLS, Cognex Cameras, and Kolver Torque Driver.",
       "Developed a UNS (Unified Namespace) using Litmus, HiveMQ, and HighByte to enable real-time human-readable data from all devices and machines within our Experience Center.",
       "New Eperience Center demos included a fully traceable eDHR-compatible assembly process featuring bolt sequencing, a kanban-based inventory tracking system, and an AI-assisted quality control process.",
@@ -374,9 +367,6 @@ export const projects: Project[] = [
       "Gave demos to customers during Operations Calling event, attended by over 600 people.",
       "Assisted Partner demo setups prior to the event, including ZeroKey, HiveMQ, and Mitsubishi Electric.",
       "Integrated a DMG Mori AMR Robot with Tulip over HTTP and MQTT."
-=======
-      // Add highlights for Ops Calling 2024
->>>>>>> Stashed changes
     ],
     image: "/projects/Events/OpsCalling_2024/tec_action.jpg",
     additionalImages: [
@@ -409,6 +399,22 @@ export const projects: Project[] = [
     ],
     tags: ["Tulip Interfaces", "Ops Calling 2024", "Event Showcase", "Manufacturing"],
     type: "work"
+  },
+  {
+    id: 'tradeshow-benches',
+    title: "Tradeshow Demo Benches",
+    date: "Sep 2023 – Present",
+    description: "Tulip Experience Center Project",
+    highlights: [
+      "Designed and built portable demo benches for use at international tradeshows and events",
+      "Created a modular design using Vention aluminum extrusion that can be easily assembled and disassembled",
+      "Integrated various industrial equipment including barcode scanners, label printers, and light towers",
+      "Developed a standardized wiring solution that ensures consistent and reliable operation",
+      "Optimized bench design to require only two cables (power and ethernet), slashing event setup time by 80% and enabling sales engineers to deploy fully functional demonstrations with minimal technical expertise, significantly enhancing trade show efficiency and presentation readiness.",
+      "Tools Used: Fusion 360, Vention, Industrial Equipment Integration"
+    ],
+    image: "/projects/Events/tradeshow_benches.png",
+    type: 'work',
+    tags: ["Tulip Interfaces", "Tradeshow", "Events", "Vention", "Wire Management"]
   }
-
 ];
