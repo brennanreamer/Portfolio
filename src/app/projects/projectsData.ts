@@ -17,6 +17,10 @@ export interface Project {
   documents?: { title: string; url: string; }[];
   github?: string;
   matterport?: string;
+  linkedInPosts?: Array<{
+    url: string;
+    height: number;
+  }>;
 }
 
 export const projects: Project[] = [
@@ -296,29 +300,88 @@ export const projects: Project[] = [
     matterport: "https://my.matterport.com/show/?m=mpkLjuDWrMz"
   },
   {
-    id: 'imts-2024',
-    title: "IMTS 2024",
-    date: "2024",
+    id: 'ftoptix-bioreactor-hmi',
+    title: "Rockwell Automation FT Optix Bioreactor HMI Demo",
+    date: "Sep 2024",
     description: "",
     highlights: [
-      // Add highlights for IMTS 2024
+      "Developed an HMI (Human-Machine Interface) application for to guide an operator through the setup and operation of a Bioreactor, integrating the Tulip platform directly into a Rockwell Automation FTOptix application running on an Allen-Bradley HMI.",
+      "This demostrated the integration of Tulip apps directly on the HMI, enabling real-time data visualization and control of a machine, as well as the ability to integrate third-party software using Tulip's simple Connector functionality.",
+      "The collaboration was debuted at Hannover Messe 2024, attended by 130,000 people.",
+      "The manual for the Bioreactor was embedded within the Tulip application alongside an AI Chatbot, enabling real-time assistance to operators.",
+      "Tools Used: Tulip, Rockwell Automation's FactoryTalk Optix, C#"
+    ],
+    image: "/projects/optixHMI/hmi.png",
+    linkedInPosts: [
+      {
+        url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7188602524948406272",
+        height: 789
+      },
+    ],
+    tags: ["Tulip Interfaces", "FT Optix", "Rockwell Automation", "HMI Development", "Allen-Bradley HMI", "Manufacturing"],
+    type: "work"
+  },
+  {
+    id: 'imts-2024',
+    title: "IMTS 2024",
+    date: "Sep 2024",
+    description: "",
+    highlights: [
+      "Developed a Tulip Pop-up Factory, where event-goers could step into the shoes of a manufacturing engineer on the shop floor performing an assembly process.",
+      "The Tulip Pop-up Factory showcased Banner Pick-to-Light sensors, Computer Vision for defect detection, and automatic language change using RFID tags.",
+      "Setup and provided Tech Support for the Tulip booth, ensuring a smooth experience for event-goers.",
+      "Developed a custom PCBA Gizmo Clock for use as part of the Pop-up Factory at international events.",
+      "Gave demos to customers during IMTS 2024, attended by 90,000 people."
     ],
     image: "/projects/Events/IMTS_2024/front.jpg",
+    additionalImages: [
+      "/projects/Events//tradeshow_benches.png",
+    ],
     tags: ["Tulip Interfaces", "IMTS 2024", "Event Showcase", "Manufacturing"],
     type: "work"
   },
   {
     id: 'oc-2024',
-    title: "Ops Calling 2024",
-    date: "2024",
+    title: "Operations Calling 2024",
+    date: "Oct 2024",
     description: "",
     highlights: [
-      // Add highlights for IMTS 2024
+      "Revamped our Tulip Experience Center to feature new hardware and software integrations, such as the ZeroKey Quantum RTLS, Cognex Cameras, and Kolver Torque Driver.",
+      "Developed a UNS (Unified Namespace) using Litmus, HiveMQ, and HighByte to enable real-time human-readable data from all devices and machines within our Experience Center.",
+      "New Eperience Center demos included a fully traceable eDHR-compatible assembly process featuring bolt sequencing, a kanban-based inventory tracking system, and an AI-assisted quality control process.",
+      "Developed a Bioreactor/Lab Process demo following the Large-Cell manufacturing of Insulin.", //Review this
+      "Gave demos to customers during Operations Calling event, attended by over 600 people.",
+      "Assisted Partner demo setups prior to the event, including ZeroKey, HiveMQ, and Mitsubishi Electric.",
+      "Integrated a DMG Mori AMR Robot with Tulip over HTTP and MQTT."
     ],
     image: "/projects/Events/OpsCalling_2024/tec_action.jpg",
     additionalImages: [
+      "/projects/Events/OpsCalling_2024/tec_action_2.jpg",
+      "/projects/Events/OpsCalling_2024/puf_setup.png",
       "/projects/Events/OpsCalling_2024/puf_action.jpg",
       "/projects/Events/OpsCalling_2024/dmgmori_amr.jpg"
+    ],
+    linkedInPosts: [
+      {
+        url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7275138627435692032",
+        height: 504
+      },
+      {
+        url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7269724998355890179",
+        height: 609
+      },
+      {
+        url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7256710280296960001",
+        height: 646
+      },
+      {
+        url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7255220508047163392",
+        height: 642
+      },
+      {
+        url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7250213334145273856",
+        height: 642
+      },
     ],
     tags: ["Tulip Interfaces", "Ops Calling 2024", "Event Showcase", "Manufacturing"],
     type: "work"

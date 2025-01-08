@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Project, projects } from '../projectsData';
 import ModelViewer from '@/components/ModelViewer';
 import MatterportViewer from '@/components/MatterportViewer';
+import { LinkedInFeed } from '@/components/LinkedInFeed';
 
 const ImageCarousel = ({ images }: { images: string[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -119,12 +120,11 @@ const DocumentViewer = ({ documents }: { documents: Project['documents'] }) => {
             <button
               key={index}
               onClick={() => setActiveDoc(index)}
-              className={`
-                px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
-                ${activeDoc === index
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                activeDoc === index
                   ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-gray-600 hover:bg-gray-200'}
-              `}
+                  : 'text-gray-600 hover:bg-gray-200'
+              }`}
             >
               {doc.title}
             </button>
@@ -280,6 +280,11 @@ export default function ProjectPage() {
           {/* Document Viewer Component */}
           <DocumentViewer documents={project.documents} />
         </div>
+
+        {/* LinkedIn Feed */}
+        {project.linkedInPosts && project.linkedInPosts.length > 0 && (
+          <LinkedInFeed posts={project.linkedInPosts} />
+        )}
       </div>
     </div>
   );
