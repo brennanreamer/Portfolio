@@ -54,7 +54,7 @@ export const projects: Project[] = [
         url: "/projects/Engr Capstone Project/Design Showcase Poster.pdf"
       }
     ],
-    tags: ["Undergraduate Course","Engineering Capstone Project", "C++", "ROS", "Machine Learning", "LiDAR", "Robotics", "Nvidia Jetson Nano", "Linux"],
+    tags: ["Undergraduate Course","Engineering Capstone Project", "C++", "ROS", "Machine Learning", "LiDAR", "Robotics", "Nvidia Jetson Nano", "Linux", "CAD"],
     type: "school"
   },
   {
@@ -130,7 +130,7 @@ export const projects: Project[] = [
       "/projects/Barnes_ControllerCover/final_front.png",
       "/projects/Barnes_ControllerCover/final_back.png"
     ],
-    tags: ["Barnes Group Co-op","Solidworks", "3D Printing", "Mechanical Design", "CNC Machining"],
+    tags: ["Barnes Group Co-op","Solidworks", "3D Printing", "Mechanical Design", "CNC Machining", "CAD"],
     type: "work",
     documents: [
       {
@@ -215,7 +215,7 @@ export const projects: Project[] = [
         url: "/projects/Barnes_energyHarvesting/models/Spacer.glb",
       }
     ],
-    tags: ["Barnes Group Co-op", "Energy Harvesting", "Solidworks", "Mechanical Design", "Circuit Design"],
+    tags: ["Barnes Group Co-op", "Energy Harvesting", "Solidworks", "Mechanical Design", "Circuit Design", "CAD"],
     type: "work"
   },
   {
@@ -300,9 +300,29 @@ export const projects: Project[] = [
     matterport: "https://my.matterport.com/show/?m=mpkLjuDWrMz"
   },
   {
+<<<<<<< Updated upstream
     id: 'ftoptix-bioreactor-hmi',
     title: "Rockwell Automation FT Optix Bioreactor HMI Demo",
     date: "Sep 2024",
+=======
+    id: 'tec-internal-db',
+    title: "TEC Internal Dashboard",
+    date: "Dec 2022",
+    description: "",
+    highlights: [
+      "Developed a robust and user-friendly dashboard for Tulip's internal operations",
+      "Included HTTP API connections with numerous services, such as Google Calender for a complete view of daily Tulip Experience Center Tours, MBTA for a live train and bus schedule, Slack for company announcements, and a live news feed",
+      "Programmed custom seven-segment display widgets for the dashboard using JavaScript, displaying time information for all of our offices",
+    ],
+    image: "/projects/TEC Internal Dashboard/internalDash.png",
+    tags: ["Tulip Interfaces", "Tulip Experience Center"],
+    type: "work"
+  },
+  {
+    id: 'imts-2024',
+    title: "IMTS 2024",
+    date: "2024",
+>>>>>>> Stashed changes
     description: "",
     highlights: [
       "Developed an HMI (Human-Machine Interface) application for to guide an operator through the setup and operation of a Bioreactor, integrating the Tulip platform directly into a Rockwell Automation FTOptix application running on an Allen-Bradley HMI.",
@@ -346,6 +366,7 @@ export const projects: Project[] = [
     date: "Oct 2024",
     description: "",
     highlights: [
+<<<<<<< Updated upstream
       "Revamped our Tulip Experience Center to feature new hardware and software integrations, such as the ZeroKey Quantum RTLS, Cognex Cameras, and Kolver Torque Driver.",
       "Developed a UNS (Unified Namespace) using Litmus, HiveMQ, and HighByte to enable real-time human-readable data from all devices and machines within our Experience Center.",
       "New Eperience Center demos included a fully traceable eDHR-compatible assembly process featuring bolt sequencing, a kanban-based inventory tracking system, and an AI-assisted quality control process.",
@@ -353,6 +374,9 @@ export const projects: Project[] = [
       "Gave demos to customers during Operations Calling event, attended by over 600 people.",
       "Assisted Partner demo setups prior to the event, including ZeroKey, HiveMQ, and Mitsubishi Electric.",
       "Integrated a DMG Mori AMR Robot with Tulip over HTTP and MQTT."
+=======
+      // Add highlights for Ops Calling 2024
+>>>>>>> Stashed changes
     ],
     image: "/projects/Events/OpsCalling_2024/tec_action.jpg",
     additionalImages: [
