@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { Analytics } from '@vercel/analytics/react';
 import { projects } from './projects/projectsData';
 
 const ProjectCarousel = () => {
@@ -95,57 +96,59 @@ export default function Home() {
   }, [engineerType]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
-              Hi, I'm Brennan Reamer
-            </h1>
-            <div className="relative h-16 flex justify-center items-center">
-              <p className="text-base text-gray-500 sm:text-lg md:text-xl">
-                <span 
-                  className={`inline-block transition-all duration-500 ease-in-out transform
-                    ${isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}
-                >
-                  {engineerType} Engineer
-                </span>
-                {' passionate about building innovative solutions'}
-              </p>
-            </div>
-            <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-              <div className="rounded-md shadow">
-                <Link
-                  href="/projects"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-                >
-                  View Projects
-                </Link>
+    <main className="flex flex-col items-center justify-between min-h-screen bg-gray-50">
+      <div className="w-full">
+        <section className="py-20 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
+                Hi, I'm Brennan Reamer
+              </h1>
+              <div className="relative h-16 flex justify-center items-center">
+                <p className="text-base text-gray-500 sm:text-lg md:text-xl">
+                  <span 
+                    className={`inline-block transition-all duration-500 ease-in-out transform
+                      ${isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}
+                  >
+                    {engineerType} Engineer
+                  </span>
+                  {' passionate about building innovative solutions'}
+                </p>
+              </div>
+              <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+                <div className="rounded-md shadow">
+                  <Link
+                    href="/projects"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                  >
+                    View Projects
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Featured Projects Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900">
-              Featured Projects
-            </h2>
-            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
-              Here are some of my recent engineering projects
-            </p>
+        {/* Featured Projects Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h2 className="text-3xl font-extrabold text-gray-900">
+                Featured Projects
+              </h2>
+              <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+                Here are some of my recent engineering projects
+              </p>
+            </div>
+            
+            {/* Project Carousel */}
+            <div className="mt-12">
+              <ProjectCarousel />
+            </div>
           </div>
-          
-          {/* Project Carousel */}
-          <div className="mt-12">
-            <ProjectCarousel />
-          </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+      <Analytics />
+    </main>
   );
 }
