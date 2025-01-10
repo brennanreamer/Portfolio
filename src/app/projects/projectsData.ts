@@ -85,7 +85,7 @@ export const projects: Project[] = [
   {
     id: '3d-printer',
     title: "3D Printer",
-    date: "2020 - 2021", //Need to find this date
+    date: "Aug 2020 - Dec 2020",
     description: "",
     highlights: [
       "Assembled a FDM Cartesian 3D Printer, wiring and programming the motherboard with Marlin (RepRap) firmware written in C/C++",
@@ -120,8 +120,10 @@ export const projects: Project[] = [
     date: "Jan 2022 – Jun 2022",
     description: "",
     highlights: [
-      "Designed a controller backing for a Barnes Group Hot Runner System",
-      "Tools Used: Solidworks, 3D printing, CNC Machining"
+      "Designed a controller backing for a Barnes Group Hot Runner System using Solidworks CAD software",
+      "Followed Design for Manufacturability (DFM) principles to ensure manufacturability and ease of assembly",
+      "Prototyped and rapidly iterated on the design using 3D printing, ensuring it met the requirements of the project prior to CNC machining",
+      "Tools Used: Solidworks, 3D printing, CNC Machining, DFM (Design for Manufacturability)"
     ],
     image: "/projects/Barnes_ControllerCover/cadModel.png",
     additionalImages: [
@@ -130,14 +132,8 @@ export const projects: Project[] = [
       "/projects/Barnes_ControllerCover/final_front.png",
       "/projects/Barnes_ControllerCover/final_back.png"
     ],
-    tags: ["Barnes Group Co-op","Solidworks", "3D Printing", "Mechanical Design", "CNC Machining", "CAD"],
-    type: "work",
-    documents: [
-      {
-        title: "Engineering Drawing",
-        url: "/projects/Barnes_ControllerCover/CoverDrawing.pdf"
-      }
-    ]
+    tags: ["Barnes Group Co-op","Solidworks", "3D Printing", "Mechanical Design", "CNC Machining", "CAD", "DFM (Design for Manufacturability)"],
+    type: "work"
   },
   {
     id: 'barnes-controller-assembly',
@@ -221,7 +217,7 @@ export const projects: Project[] = [
   {
     id: 'pokemon-game',
     title: "Pokemon Game",
-    date: "Jan 2023 – Aug 2023", //Need to find this date
+    date: "Nov 2021 – Dec 2021",
     description: "",
     highlights: [
       "Developed a text-based Pokémon-style game using C++ Object-Oriented Programming principles, incorporating classes, objects, and inheritance.",
@@ -243,7 +239,7 @@ export const projects: Project[] = [
   {
     id: 'space-invaders-game',
     title: "Space Invaders Game",
-    date: "Jan 2023 – Aug 2023", //Need to find this date
+    date: "Apr 2021 – May 2021",
     description: "",
     highlights: [
       "Collaborated with a team of three to program a Space Invaders-style game using C on an Altera DE0-CV board, integrating pointers, structs, abstraction, and animation.",
@@ -266,7 +262,7 @@ export const projects: Project[] = [
   {
     id: 'portfolio-website',
     title: "Portfolio Website",
-    date: "Nov 2024 – Dec 2024",
+    date: "Nov 2024 – Jan 2025",
     description: "",
     highlights: [
       "Developed a responsive and user-friendly portfolio website using React and Typescript, showcasing a collection of projects, skills, and experiences.",
@@ -403,7 +399,7 @@ export const projects: Project[] = [
   {
     id: 'tradeshow-benches',
     title: "Tradeshow Demo Benches",
-    date: "Sep 2023 – Present",
+    date: "Sep 2023 – Oct 2023",
     description: "Tulip Experience Center Project",
     highlights: [
       "Designed and built portable demo benches for use at international tradeshows and events",
