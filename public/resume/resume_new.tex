@@ -1,0 +1,243 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages and styling (preserved from original resume)
+\usepackage[ignoreheadfoot, top=2cm, bottom=2cm, left=2cm, right=2cm, footskip=1.0cm]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[pdftitle={Brennan Reamer's Resume}, pdfauthor={Brennan Reamer}, pdfcreator={LaTeX}, colorlinks=true, urlcolor=primaryColor]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+% Ensure PDF is machine readable/ATS parsable
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Settings
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{-1pt}{0.3cm}{0.2cm}
+
+% Custom environments
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        leftmargin=0.5cm,
+        rightmargin=0cm,
+        itemindent=0cm,
+        labelwidth=0.3cm,
+        labelsep=0.2cm,
+        align=left,
+        itemsep=0.05cm,
+        topsep=0.05cm,
+        parsep=0.05cm,
+        partopsep=0pt
+    ]
+}{
+    \end{itemize}
+    \vspace{0.1cm}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0cm + 0.00001cm}{0cm + 0.00001cm}
+}{
+    \end{adjustwidth}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\begin{document}
+    \newcommand{\twocolentry}[2]{%
+        \raggedright #1 \hfill #2
+    }
+    %\newcommand{\AND}{\unskip
+    %    \cleaders\copy\ANDbox\hskip\wd\ANDbox
+    %    \ignorespaces
+    %}
+
+    \newcommand{\AND}{%
+        \unskip
+        \cleaders\copy\ANDbox
+        \hskip\wd\ANDbox
+    }
+
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    % Header
+    \begin{center}
+        \fontsize{25pt}{25pt}\selectfont Brennan Reamer
+
+        \vspace{5pt}
+
+        \normalsize
+        \href{mailto:brennan.reamer@gmail.com}{\faEnvelope\hspace{2pt}brennan.reamer@gmail.com}
+         | 
+        {\faPhone\hspace{2pt}(240) 432-1200}
+
+        \vspace{5pt}
+
+        \href{https://www.linkedin.com/in/brennanreamer/}{\faLinkedin\hspace{2pt}linkedin.com/in/brennanreamer}
+         | 
+        \href{https://github.com/brennanreamer}{\faGithub\hspace{2pt}github.com/brennanreamer}
+         | 
+        \href{brennanreamer.vercel.app}{\faGlobe\hspace{2pt}brennanreamer.vercel.app}
+    \end{center}
+
+    \vspace{5pt}
+
+    \section{Education}
+    \begin{twocolentry}{\textbf{Bachelor of Science in Electromechanical Engineering}}{Aug 2019 -- Aug 2023}
+    \end{twocolentry}\\
+    \begin{twocolentry}
+    {\textit{Wentworth Institute of Technology -- Boston, MA}}{\textbf{GPA}: 3.9/4.0}
+    \end{twocolentry}\\
+    \textbf{Minors}: Applied Mathematics, Computer Science\\
+    \textbf{Honors}: Magna Cum Laude, Dean's list recipient every semester\\
+    \textbf{Extracurriculars}: Wentworth Engineering Honors Society Member, Wentworth Men's Soccer Team player
+
+    \section{Professional Experience}
+    \begin{twocolentry}{\textbf{Tulip Experience Center Program Manager}}{Nov 2024 -- Present}
+    \end{twocolentry}
+    \begin{onecolentry}
+    \textit{Tulip Interfaces -- Somerville, MA}
+    \begin{highlights}
+        \item Developed and executed strategic roadmap for Tulip's Experience Center, aligning program objectives with company's growth targets and market demands
+        \item Managed and mentored a team of two co-op engineers, providing technical guidance, career development, and performance evaluations
+        \item Led workshops and training sessions, providing guidance to prospective partners wanting their own Experience Center program
+        \item Trained and mentored Tulip's sales team in how to successfully give a demonstration of the Tulip platform to customers
+        \item Designed and built new travel kits using Fusion 360 and 80/20 for Sales Engineers to bring for demos at prospective client sites
+    \end{highlights}
+    \end{onecolentry}
+
+    \begin{twocolentry}{\textbf{Tulip Experience Center Lead}}{Jun 2024 -- Nov 2024}
+    \end{twocolentry}
+    \begin{onecolentry}
+    \textit{Tulip Interfaces -- Somerville, MA}
+    \begin{highlights}
+        \item Led and scaled Tulip's Experience Center program, creating immersive demonstrations of manufacturing technology for Fortune 500 clients
+        \item Spearheaded Tulip's presence at major manufacturing events including IMTS, Operations Calling, and Hannover Messe, delivering live demonstrations to 500+ attendees
+        \item Designed and implemented 15+ interactive manufacturing applications using the Tulip platform, showcasing real-time data collection, quality control, process optimization, and integration with external APIs
+        \item Established and maintained strategic partnerships with several enterprise companies, providing consultation on manufacturing digitization strategies
+        \item Developed a full 3D model of the Tulip Experience Center using Fusion 360 for use as a virtual TEC for prospective clients and to minimize TEC downtime when planning and executing large-scale design or layout changes
+    \end{highlights}
+    \end{onecolentry}
+
+    \begin{twocolentry}{\textbf{Tulip Experience Center Engineer}}{May 2023 -- Jun 2024}
+    \end{twocolentry}
+    \begin{onecolentry}
+    \textit{Tulip Interfaces -- Somerville, MA}
+    \begin{highlights}
+        \item Developed and maintained complex manufacturing applications for Experience Center demonstrations and client proof-of-concepts
+            \item Created comprehensive technical documentation and training materials for demonstrations of Tulip's features and capabilities
+        \item Collaborated with product team to identify and implement feature improvements based on client feedback
+        \item Delivered live demonstrations to prospective clients, effectively communicating technical concepts to diverse audiences
+    \end{highlights}
+    \end{onecolentry}
+
+    \begin{twocolentry}{\textbf{Tulip Experience Center Applications Engineering Co-op}}{Sep 2022 -- Dec 2022}
+    \end{twocolentry}
+    \begin{onecolentry}
+    \textit{Tulip Interfaces -- Somerville, MA}
+    \begin{highlights}
+            \item Built and maintained demonstrations of manufacturing processes integrating IoT devices, sensors, and industrial equipment with Tulip's platform
+        \item Performed daily audits and maintenance of the TEC's hardware and software systems, reducing issues during client tours by 70\%
+        \item Implemented custom software solutions to showcase manufacturing process optimization
+        \item Assisted in developing demonstration environments for client visits and virtual tours
+    \end{highlights}
+    \end{onecolentry}
+
+    \begin{twocolentry}{\textbf{R\&D Design Engineering Co-op}}{Jan 2022 -- Apr 2022}
+    \end{twocolentry}
+    \begin{onecolentry}
+    \textit{Barnes Group -- Peabody, MA}
+    \begin{highlights}
+        \item Led comprehensive testing of manifold systems, comparing Type-J and Type-K thermocouples in Hot Runner controllers, utilizing data acquisition systems and Excel for analysis
+        \item Designed and implemented an innovative energy harvesting system for injection molding machines, achieving 0.35W power output over 10 actuations
+        \item Engineered custom components including controller backing and mounting solutions using Solidworks and DFM (Design for Manufacturability) principles
+        \item Assembled and wired Hot Runner Controllers from scratch, ensuring precise temperature control for multiple zones
+    \end{highlights}
+    \end{onecolentry}
+
+    \section{Technical Projects}
+    \begin{twocolentry}{\textbf{Autonomous Meal Delivery Robot}}{Jan 2023 -- Aug 2023}
+    \end{twocolentry}
+    \begin{onecolentry}
+    \textit{Senior Design Project}
+    \begin{highlights}
+        \item Led development of an autonomous navigation system for hospital meal delivery using ROS, Ubuntu, and Nvidia Jetson Nano
+        \item Designed and implemented custom path planning algorithms incorporating obstacle avoidance and efficient routing
+        \item Integrated LiDAR and ultrasonic sensors for real-time environment mapping and decision making
+    \end{highlights}
+    \end{onecolentry}
+
+    \begin{twocolentry}{\textbf{Energy Harvesting System for Injection Molding}}{Jan 2022 -- Jun 2022}
+    \end{twocolentry}
+    \begin{onecolentry}
+    \textit{Barnes Group Co-op Project}
+    \begin{highlights}
+        \item Innovated a novel energy harvesting system generating 0.35W from mold movements in injection molding machines
+        \item Engineered custom testing apparatus and components using Solidworks and DFM (Design for Manufacturability) principles
+        \item Conducted comprehensive testing using multimeter and oscilloscope for precise measurements
+    \end{highlights}
+    \end{onecolentry}
+
+    \begin{twocolentry}{\textbf{3D Printer Build and Integration}}{2020 -- 2021}
+    \end{twocolentry}
+    \begin{onecolentry} 
+    \begin{highlights}
+        \item Built and configured a FDM Cartesian 3D printer, including firmware programming in C++
+        \item Implemented headless printing server using Raspberry Pi for remote operation
+        \item Developed custom print profiles and calibration procedures for optimal print quality
+    \end{highlights}
+    \end{onecolentry}
+
+    \begin{twocolentry}{\textbf{Black-Scholes Equation Research}}{Aug 2020 -- Dec 2020}
+    \end{twocolentry}
+    \begin{onecolentry}
+    \textit{Graduate Mathematics Project}
+    \begin{highlights}
+        \item Authored comprehensive research paper on the Black-Scholes equation in financial mathematics
+        \item Developed mathematical models and implementations using LaTeX for complex equation representation
+        \item Created reference guide detailing solution methodologies for partial differential equations
+    \end{highlights}
+    \end{onecolentry}
+
+    \section{Skills}
+    \begin{onecolentry}
+        \textbf{Programming Languages:} C++, JavaScript, Python, TypeScript, React, Cypress, SQL, R, LaTeX, Matlab \\
+        \textbf{Protocols:} Modbus, MQTT, OPC-UA, Serial, Ethernet, WiFi \\
+        \textbf{Technologies:} ROS, Linux, Git, Nvidia Jetson, Raspberry Pi, Arduino, I2C, Machine Learning, AWS \\
+        \textbf{Software:} Solidworks, Fusion 360, Node-RED, HighByte, HiveMQ, Rockwell Automation's FactoryTalk Optix, Salesforce, LandingAI, Jira, Excel, Powerpoint, Figma, National Instruments DAQ, NI Multisim, Simulink \\
+        \textbf{Hardware:} LiDAR, Sensors, Microcontrollers, 3D Printing (FDM \& SLA), Soldering \\
+        \textbf{Machine Tools:} Drill Press, Lathe, Milling Machine, Band Saws, CNC Machining
+    \end{onecolentry}
+
+\end{document}
