@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Analytics } from '@vercel/analytics/react';
 import { projects } from './projects/projectsData';
 
 const ProjectCarousel = () => {
@@ -148,7 +147,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-      <Analytics />
     </main>
   );
 }
